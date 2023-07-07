@@ -41,5 +41,10 @@ def setup_h2ollmstudio():
     return {
         "command": _get_h2ollmstudio_command,
         "timeout": 20,
-        "launcher_entry": {"title": "h2ollmstudio", "icon_path": _get_icon_path()},
+        "launcher_entry": {
+            "title": "h2ollmstudio",
+            "icon_path": _get_icon_path()
+        },
+        "standalone": False,
+        "support_http_over_websocket": True
     }
