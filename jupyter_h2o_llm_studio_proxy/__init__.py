@@ -45,6 +45,5 @@ def setup_h2ollmstudio():
             "title": "h2ollmstudio",
             "icon_path": _get_icon_path()
         },
-        "standalone": False,
-        "support_http_over_websocket": True
+        "new_browser_tab": True,
     }
