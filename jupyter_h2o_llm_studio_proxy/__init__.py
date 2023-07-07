@@ -36,11 +36,10 @@ def setup_h2ollmstudio():
             logger.info("Created directory %s" % working_dir)
         else:
             logger.info("Directory %s already exists" % working_dir)
-        return ["wave", "run", "app"]
+        return ["wave", "run", "{working_dir}/app"]
 
     return {
         "command": _get_h2ollmstudio_command,
         "timeout": 20,
-        "new_browser_tab": True,
         "launcher_entry": {"title": "h2ollmstudio", "icon_path": _get_icon_path()},
     }
