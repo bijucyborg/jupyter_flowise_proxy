@@ -21,7 +21,7 @@ setuptools.setup(
     ],
     entry_points={
         'jupyter_serverproxy_servers': [
-            'h2o-llm-studio = jupyter_h2o-llm-studio_proxy:setup_h2o-llm-studio',
+            'h2ollmstudio = jupyter_h2o-llm-studio_proxy:setup_setup_h2ollmstudio',
         ]
     },
     package_data={
