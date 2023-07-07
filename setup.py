@@ -28,6 +28,6 @@ setuptools.setup(
         ]
     },
     package_data={
-        "jupyter_h2o_llm_studio_proxy": ["icons/logo.svg"],
+        "jupyter_h2o_llm_studio_proxy": ["jupyter_h2o_llm_studio_proxy/icons/logo.svg"],
     },
 )
