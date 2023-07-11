@@ -32,6 +32,12 @@ def setup_h2ollmstudio():
         home_dir = os.environ.get("HOME") or "/home/jovyan"
         working_dir = f"{home_dir}/h2o-llmstudio"
         os.chdir(working_dir)
+        # Set environment variables
+        os.environ["H2O_WAVE_MAX_REQUEST_SIZE"] = "25MB"
+        os.environ["H2O_WAVE_NO_LOG"] = "true"
+        os.environ["H2O_WAVE_PRIVATE_DIR"] = "./"
+        os.environ["H2O_WAVE_LISTEN"] = ":str(port)"
+        os.environ["H2O_WAVE_ADDRESS"] = "http://127.0.0.1:str(port)"
         return ["make", "wave"]
 
     return {
