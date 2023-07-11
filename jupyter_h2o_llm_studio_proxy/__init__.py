@@ -36,7 +36,7 @@ def setup_h2ollmstudio():
             logger.info("Created directory %s" % working_dir)
         else:
             logger.info("Directory %s already exists" % working_dir)
-        return ["wave", "run", "{working_dir}/app"]
+        return ["make", "wave"]
 
     return {
         "command": _get_h2ollmstudio_command,
