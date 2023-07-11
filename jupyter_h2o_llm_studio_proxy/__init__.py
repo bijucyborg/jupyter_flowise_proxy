@@ -25,17 +25,13 @@ def setup_h2ollmstudio():
 
     # Make sure executable is in $PATH
     def _get_h2ollmstudio_command(port):
-        executable = "wave"
+        executable = "make"
         if not shutil.which(executable):
-            raise FileNotFoundError("Can not find h2ollmstudio executable in $PATH")
+            raise FileNotFoundError("Can not find make executable in $PATH")
         # Create working directory
         home_dir = os.environ.get("HOME") or "/home/jovyan"
         working_dir = f"{home_dir}/h2o-llmstudio"
-        if not os.path.exists(working_dir):
-            os.makedirs(working_dir)
-            logger.info("Created directory %s" % working_dir)
-        else:
-            logger.info("Directory %s already exists" % working_dir)
+        os.chdir(working_dir)
         return ["make", "wave"]
 
     return {
