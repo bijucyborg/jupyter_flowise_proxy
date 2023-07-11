@@ -37,7 +37,7 @@ def setup_h2ollmstudio():
         os.environ["H2O_WAVE_NO_LOG"] = "true"
         os.environ["H2O_WAVE_PRIVATE_DIR"] = "/download/@output/download"
         os.environ["H2O_WAVE_LISTEN"] = f":{port}"
-        os.environ["H2O_WAVE_ADDRESS"] = f"http://127.0.0.1:{port}/h2ollmstudio/"
+        os.environ["H2O_WAVE_ADDRESS"] = f"http://127.0.0.1:{port}/"
         return ["make", "wave"]
 
     return {
