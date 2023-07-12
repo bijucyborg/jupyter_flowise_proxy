@@ -46,6 +46,6 @@ def setup_flowise():
             "title": "flowise",
             "icon_path": _get_icon_path()
         },
-        "absolute_url": False,
+        "absolute_url": True,
         "new_browser_tab": True,
     }
