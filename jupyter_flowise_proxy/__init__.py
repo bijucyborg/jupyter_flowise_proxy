@@ -25,13 +25,17 @@ def setup_flowise():
 
     # Make sure executable is in $PATH
     def _get_flowise_command(port):
-        executable = "make"
+        executable = "npx"
         if not shutil.which(executable):
-            raise FileNotFoundError("Can not find make executable in $PATH")
+            raise FileNotFoundError("Can not find npx executable in $PATH")
         # Create working directory
         home_dir = os.environ.get("HOME") or "/home/jovyan"
-        working_dir = f"{home_dir}"
-        os.chdir(working_dir)
+        working_dir = f"{home_dir}/flowise"
+        if not os.path.exists(working_dir):
+            os.makedirs(working_dir)
+            logger.info("Created directory %s" % working_dir)
+        else:
+            logger.info("Directory %s already exists" % working_dir)
         # Set environment variables
         return ["npx", "flowise", "start", "--PORT", f"{port}"]
 
