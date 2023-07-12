@@ -20,7 +20,7 @@ def setup_flowise():
 
     def _get_icon_path():
         return os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), "icons", "flowise.png"
+            os.path.dirname(os.path.abspath(__file__)), "icons", "flowise.svg"
         )
 
     # Make sure executable is in $PATH

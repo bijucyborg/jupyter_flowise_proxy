@@ -28,6 +28,6 @@ setuptools.setup(
         ]
     },
     package_data={
-        "jupyter_h2o_llm_studio_proxy": ["icons/flowise.png"],
+        "jupyter_h2o_llm_studio_proxy": ["icons/flowise.svg"],
     },
 )
