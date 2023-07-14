@@ -7,10 +7,14 @@ for more information.
 import os
 import shutil
 import logging
-
+from urllib.parse import urlparse, urlunparse
+import requests
+from urllib.parse import urlparse, urlunparse
 
 logger = logging.getLogger(__name__)
 logger.setLevel("INFO")
+
+
 
 def setup_flowise():
     """Setup commands and icon paths and return a dictionary compatible
@@ -38,6 +42,15 @@ def setup_flowise():
         # Set environment variables
         return ["npx", "flowise", "start", "--PORT", f"{port}"]
 
+    def _rewrite_url_handler(request, url):
+        parsed_url = urlparse(url)
+        if parsed_url.path.startswith("/static/"):
+            # Rewrite the URL to include the desired path
+            new_path = "/flowise" + parsed_url.path
+            new_url = urlunparse(parsed_url._replace(path=new_path))
+            return new_url
+        return url
+
     return {
         "command": _get_flowise_command,
         "timeout": 20,
@@ -47,5 +60,8 @@ def setup_flowise():
         },
         "absolute_url": True,
         "new_browser_tab": True,
+        "headers": {
+            "RewriteUrlHandler.handler": _rewrite_url_handler
+        },
         "mappath": {"flowise": "/flowise"}
     }
