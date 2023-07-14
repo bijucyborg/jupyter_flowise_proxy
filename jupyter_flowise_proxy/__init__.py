@@ -12,6 +12,12 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel("INFO")
 
+def _flowise_mappath(path):
+    # Append authKey to URL if we are at the base-url
+    if path in ("/", "/index.html"):
+        path += "/flowise"
+
+    return path
 
 def setup_flowise():
     """Setup commands and icon paths and return a dictionary compatible
@@ -48,5 +54,5 @@ def setup_flowise():
         },
         "absolute_url": True,
         "new_browser_tab": True,
-        "mappath": {"flowise": "/flowise"}
+        "mappath": _flowise_mappath,
     }
