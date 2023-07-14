@@ -51,5 +51,5 @@ def setup_flowise():
         },
         "absolute_url": False,
         "new_browser_tab": True,
-        "mappath": {'/': '/vnc_renku.html'},
+        "mappath": {'/flowise': '/vnc_renku.html'},
     }
