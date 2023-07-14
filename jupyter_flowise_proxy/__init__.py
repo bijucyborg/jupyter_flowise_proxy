@@ -48,4 +48,5 @@ def setup_flowise():
         },
         "absolute_url": True,
         "new_browser_tab": True,
+        "mappath": {"flowise": "/flowise"}
     }
