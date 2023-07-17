@@ -33,14 +33,15 @@ def setup_flowise():
             raise FileNotFoundError("Can not find npx executable in $PATH")
         # Create working directory
         home_dir = os.environ.get("HOME") or "/home/jovyan"
-        working_dir = f"{home_dir}/flowise"
+        working_dir = f"{home_dir}/Flowise"
         if not os.path.exists(working_dir):
             os.makedirs(working_dir)
             logger.info("Created directory %s" % working_dir)
         else:
             logger.info("Directory %s already exists" % working_dir)
         # Set environment variables
-        return ["npx", "flowise", "start", "--PORT", f"{port}"]
+        os.chdir(working_dir)
+        return ["yarn", "start", "--PORT", f"{port}"]
     
 
     return {
@@ -52,8 +53,5 @@ def setup_flowise():
         },
         'absolute_url': False,
         'new_browser_tab': True,
-        'mappath': {'/': '/flowise'},
-        'request_headers_override': {
-            'X-Script-Name': '/flowise'  # Set the base path
         },
     }
