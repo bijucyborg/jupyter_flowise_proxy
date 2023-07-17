@@ -12,7 +12,7 @@ import requests
 from urllib.parse import urlparse, urlunparse
 
 logger = logging.getLogger(__name__)
-logger.setLevel("INFO")
+logger.setLevel("DEBUG")
 
 
 
@@ -41,6 +41,7 @@ def setup_flowise():
             logger.info("Directory %s already exists" % working_dir)
         # Set environment variables
         return ["npx", "flowise", "start", "--PORT", f"{port}"]
+    
 
     return {
         "command": _get_flowise_command,
@@ -51,5 +52,7 @@ def setup_flowise():
         },
         "absolute_url": False,
         "new_browser_tab": True,
-        "mappath": {'/flowise': '/vnc_renku.html'},
+        "request_headers_override": {
+            "X-Script-Name": "/flowise"  # Set the base path
+        },
     }
