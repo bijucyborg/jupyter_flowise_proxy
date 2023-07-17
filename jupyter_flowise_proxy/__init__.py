@@ -50,8 +50,8 @@ def setup_flowise():
             "title": "flowise",
             "icon_path": _get_icon_path()
         },
-        "absolute_url": False,
-        "new_browser_tab": True,
+        "absolute_url": True,
+        "new_browser_tab": False,
         "request_headers_override": {
             "X-Script-Name": "/flowise"  # Set the base path
         },
